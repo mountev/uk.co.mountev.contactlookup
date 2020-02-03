@@ -168,3 +168,13 @@ function contactlookup_civicrm_navigationMenu(&$menu) {
   ));
   _contactlookup_civix_navigationMenu($menu);
 } // */
+
+/**
+  * Implements hook_civicrm_apiWrappers().
+  */
+function contactlookup_civicrm_apiWrappers(&$wrappers, $apiRequest) {
+  // The APIWrapper is conditionally registered so that it runs only when appropriate
+  if ($apiRequest['entity'] == 'Contact' && $apiRequest['action'] == 'getlist') {
+    $wrappers[] = new CRM_Contactlookup_APIWrappers_Contact();
+  }
+}
