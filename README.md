@@ -1,8 +1,6 @@
 # uk.co.mountev.contactlookup
 
-![Screenshot](/images/screenshot.png)
-
-(*FIXME: In one or two paragraphs, describe what the extension does and why one would download it. *)
+Allow contact autocomplete widgets to also search by contact ID.
 
 The extension is licensed under [AGPL-3.0](LICENSE.txt).
 
