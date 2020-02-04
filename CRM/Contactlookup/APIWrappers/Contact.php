@@ -15,7 +15,7 @@ class CRM_Contactlookup_APIWrappers_Contact implements API_Wrapper {
    * 
    */
   public function toApiOutput($apiRequest, $result) {
-    if (CRM_Utils_Rule::positiveInteger($apiRequest['params']['input'])) {
+    if (!empty($apiRequest['params']['input']) && CRM_Utils_Rule::positiveInteger($apiRequest['params']['input'])) {
       $entity   = 'Contact';
       $request  = $apiRequest['params'];
 
@@ -30,7 +30,7 @@ class CRM_Contactlookup_APIWrappers_Contact implements API_Wrapper {
       $fnName = function_exists($fnName) ? $fnName : '_civicrm_api3_generic_getlist_params';
       $fnName($request);
 
-      if (CRM_Utils_Rule::positiveInteger($request['params']['sort_name'])) {
+      if (!empty($request['params']['sort_name']) && CRM_Utils_Rule::positiveInteger($request['params']['sort_name'])) {
         $request['params']['id'] = $request['params']['sort_name'];
         unset($request['params']['sort_name']);
 
